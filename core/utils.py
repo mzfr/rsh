@@ -2,42 +2,43 @@ import socket
 import sys
 from urllib.parse import quote_plus, urlencode
 
+"""Maximum allowed value for the port of the provided IP"""
+MAX_ALLOWED_PORT = 65536
 
-def validatePort(port):
+"""Minimum allowed value for the port of the provided IP"""
+MIN_ALLOWED_PORT = 1
+
+def colors(string: str, color: str) -> None:
+    """Make things colorfull
+
+    Arguments:
+        string {str} -- String to apply colors on
+        color {int} -- value of color to apply
+    """
+    print(f"\033[{color}m{string}\033[0m")
+
+
+def is_port_valid(port: str) -> bool:
     """Validate port number entered"""
     try:
-        if 1 < int(port) < 65536:
-            return True
-        else:
-            return False
+        return MIN_ALLOWED_PORT < int(port) < MAX_ALLOWED_PORT
     except ValueError:
         return False
 
 
-def urlEncode(cmd):
-    """urlencodes the cmd provided"""
+def url_encode(cmd) -> str:
+    """url_encodes the cmd provided"""
     try:
         return urlencode(cmd, quote_via=quote_plus)
     except Exception as error:
-        print('[x] Error:"{}"'.format(error))
+        print(f'[x] Error:"{error}"')
         sys.exit(0)
 
 
-def validateIP(ip):
+def is_ip_valid(ip: str) -> bool:
     """validate ip provided"""
     try:
         if socket.inet_aton(ip):
             return True
     except socket.error:
         return False
-
-
-def colors(string, color):
-    """Make things colorfull
-
-    Arguments:
-        string {str} -- String to apply colors on
-        color {int} -- value of color to apply
-
-    """
-    print("\033[%sm%s\033[0m" % (color, string))
