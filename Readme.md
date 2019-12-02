@@ -99,3 +99,9 @@ All the shell command are taken from [pentestmonkey](http://pentestmonkey.net/)
 ## License
 
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
+
+## Support
+
+If you'd like you can buy me some coffee:
+
+<a href="https://www.buymeacoffee.com/mzfr" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
