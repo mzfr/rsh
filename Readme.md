@@ -1,8 +1,12 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/mzfr/liffy/graphs/commit-activity)
-
-
 <h1 align="center">rsh</h1>
+
+<!--- See for dropping Python 3.5 support https://devguide.python.org/#status-of-python-branches -->
+[![Python Versions](https://img.shields.io/badge/python-3.5|3.6|3.7|3.8-blue.svg)](https://www.python.org/downloads/)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+[![Contributors](https://img.shields.io/github/contributors/mzfr/rsh.svg)](https://github.com/mzfr/rsh/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/mzfr/rsh.svg)](https://github.com/mzfr/rsh/issues)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/mzfr/rsh/graphs/commit-activity)
 
 ![rsh in action](images/rsh.png)
 
@@ -13,13 +17,14 @@
   <a href="#gallery">Gallery</a>
 </p>
 
-rsh is a tool purely written in python to easily generate reverse shell command for linux as well as windows.
+rsh is a tool purely written in Python 3 to easily a generate reverse shell command for Linux as well as Windows.
 
 ### Features
 
-This tools makes it easy for you to generate reverse shell command supported in both linux and windows, in the following languages:
+This tools makes it easy for you to quickly generate reverse shell commands supported in both Linux and Windows, in the following languages:
 
 * bash
+    - Bash reverse shell
     - netcat
     - netcat OpenBSD
     - nc.traditional
@@ -29,16 +34,16 @@ This tools makes it easy for you to generate reverse shell command supported in 
 * Ruby
 * Perl
 * PHP
-* PowerShell
+* Powershell
 * Node.JS
 * TCLSH
-* AWK
-* JAVA
+* Awk
+* Java
 
 ### Usage
 
 ```
-usage: revsh.py [-h] [-sh SH] lhost lport
+usage: rsh [-h] [-sh SH] [-listen] lhost lport
 
 positional arguments:
   lhost       Specify local host ip
@@ -47,24 +52,26 @@ positional arguments:
 optional arguments:
   -h, --help  show this help message and exit
   -sh SH      Specify the language to generate the reverse shell
+  -listen     Spawn a netcat listener for this shell.
 ```
 
-Using rsh is very simple. All you need to do is provide IP and Port and the type of shell that is to be generated.
-EX:
+Using rsh is very simple. All you need to do is provide an IP and port and the type of shell that is to be generated:
 
 * `./rsh 192.168.56.1 4444 -sh bash`
 * `./rsh 192.168.56.1 4444 -sh php`
 * `./rsh 192.168.56.1 4444 -sh powershell`
 
+You can also automatically catch the reverse shell by starting a listener when you are done. This uses netcat and listens on the port you specified for your reverse shell
+* `./rsh 192.168.56.1 4444 -sh powershell -listen`
+
 ### Installation
 
-You need python 3.5 or greater. Along with that rsh uses [pyfiglet] which you can install by running:
+You need to have Python 3.5 or greater installed to run rsh. Both Linux and Windows are supported.
+Along with that rsh uses [pyfiglet](https://pypi.org/project/pyfiglet/) which you can install by running:
 
 ```
-pip install pyfiglet
+pip install -r requirements.txt
 ```
-
-Nothing else is required to run rsh.
 
 ### Gallery
 
@@ -88,7 +95,7 @@ Nothing else is required to run rsh.
 
 * Report a bug
 * Fix something and open a pull request
-* Add more reverse shell
+* Add more reverse shells
 
 In any case feel free to open an issue
 

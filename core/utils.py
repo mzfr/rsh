@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
+# This file is part of rsh which can be found at https://github.com/mzfr/rsh
+# See the file 'LICENSE' for copying permission.
+
+from urllib.parse import quote_plus, urlencode
+
 import socket
 import sys
-from urllib.parse import quote_plus, urlencode
 
 """Maximum allowed value for the port of the provided IP"""
 MAX_ALLOWED_PORT = 65536
